@@ -1,0 +1,18 @@
+services:
+  uptime-kuma:
+    command:
+    - louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: always
+    extra_hosts:
+    - olvm-host.olvm.vcn03051812.oraclevcn.com:150.136.7.22
+    - dev-ovirt.devolvm.devovirt.oraclevcn.com:150.136.196.228
+    image: uptime-kuma
+    ports:
+    - 3001:3001
+    volumes:
+    - uptime-kuma:/app/data
+version: '3'
